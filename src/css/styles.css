@@ -1,0 +1,11 @@
+.primaryButton {
+    width: 100px;
+    heigh: 100px;
+
+}
+
+
+html, body {
+    background: transparent;
+    height: 100vh;
+}
