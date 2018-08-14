@@ -37,14 +37,14 @@ export function getPropertyFile(propName) {
 }
 
 
-export function getFileFromGit(user){
+export function getFileFromGit(user, reponame, filename){
   return request
-    .get(githubUrl + '/repos/' + user + "/ReactContextPOC"+ '/contents' + "/package.json")
+    .get(githubUrl + '/repos/' + user + "/" + reponame + '/contents' + "/" + filename)
     .set("Accept", "applicaiton/vnd.github.VERSION.raw")
     .then(
       response => {
-        console.log("Response", response)
-        return response.text
+        console.log("Response", response);
+        return parseProperty(response.text)
       },
       err => console.log("Err", err)
     )
@@ -58,10 +58,6 @@ export function loginToGit(user, password){
       username: user,
       password: password
     });
-  } else{
-    gh = new GitHub({
-      token: f25cb4469a3acd23064e6734e3a7648b21cfe91c
-    })
   }
 
   let currentUser = gh.getUser();
@@ -86,12 +82,17 @@ export function loginToGit(user, password){
 }
 
 
-// function parseProperty (data) {
-//   let propertyArr = [];
-//   Object.entries(data).map((entry) => {
-//     console.log(entry[1])
-//     if(typeof entry === 'object' && entry !== null)
-//       propertyArr += entry[1];
-//   })
-//   return propertyArr;
-// }
+function parseProperty (data) {
+  let tempArr = [];
+  let tempObj = {};
+
+  let propertyArr = [];
+  data.split("\n").map((prop) => {
+
+    tempArr = prop.split("=")
+    tempObj = {[tempArr[0]] : tempArr[1]};
+    propertyArr.push(tempObj);
+  });
+
+  return propertyArr;
+}
