@@ -11,21 +11,22 @@ export class GitSelector extends React.Component {
 
   render(){
     return(
-      <React.Fragment>
-        <GitSelectorField
-          fieldName="username"
-          handleChange={this.props.handleChange}/>
-        <GitSelectorField
-          fieldName="reponame"
-          handleChange={this.props.handleChange}/>
-        <GitSelectorField
-          fieldName="filename"
-          handleChange={this.props.handleChange}/>
-        <GitSelectorField
-          fieldName="submit"
-          handleSubmit={this.props.handleSubmit}/>
-
-      </React.Fragment>
+      <form className="form-inline">
+        <div className="form-group">
+          <GitSelectorField
+            fieldName="username"
+            handleChange={this.props.handleChange}/>
+          <GitSelectorField
+            fieldName="reponame"
+            handleChange={this.props.handleChange}/>
+          <GitSelectorField
+            fieldName="filename"
+            handleChange={this.props.handleChange}/>
+          <GitSelectorField
+            fieldName="submit"
+            handleSubmit={this.props.handleSubmit}/>
+        </div>
+      </form>
     )
 
   }

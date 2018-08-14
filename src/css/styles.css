@@ -1,11 +1,47 @@
 .primaryButton {
     width: 100px;
     heigh: 100px;
-
 }
 
+.outlineBlock {
+    border-width: 1px;
+    border-color: #ddd;
+    border-radius:  4px 4px 0 0;
+    border-style: solid;
+    padding: 15px 15px 15px;
+    margin: 50px;
+    margin-top: 30px;
+}
+
+.exampleHeading{
+    color: #666666;
+    font-weight: 700;
+}
+
+.docHeader {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: #0d3349;
+}
+
+.docHeaderText{
+    color: white;
+    padding-left: 2%;
+}
+
+.fieldItem{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.mainContainer {
+    width: 100vw;
+    padding: 0;
+}
 
 html, body {
     background: transparent;
     height: 100vh;
+    font-family: 'Roboto', sans-serif;
 }
+

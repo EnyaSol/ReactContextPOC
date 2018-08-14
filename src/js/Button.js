@@ -7,8 +7,8 @@ import "../css/styles.css"
 
 const Button = (props) => {
   return (
-      <button className="btn primaryButton" onClick={() => props.handleClick()}>
-        Retrieve {props.text} properties
+      <button className="btn btn-primary" onClick={() => props.handleClick()}>
+        Retrieve Mock {props.text} properties
       </button>
   )
 

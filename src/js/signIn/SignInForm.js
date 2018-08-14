@@ -4,7 +4,6 @@
 import React from 'react'
 import {SignInField} from './SignInField'
 
-
 export class SignInForm extends React.Component {
 
   constructor(props){
@@ -14,14 +13,15 @@ export class SignInForm extends React.Component {
 
   render(){
     return(
-      <form>
-        <SignInField fieldName="username"
-                     handleChange={this.props.handleChange}/>
-        <SignInField fieldName="password"
-                     handleChange={this.props.handleChange}/>
-        <SignInField fieldName="submit"
-                     handleSubmit={this.props.handleSubmit}/>
-
+      <form className="form-inline">
+        <div className="form-group">
+          <SignInField fieldName="username"
+                       handleChange={this.props.handleChange}/>
+          <SignInField fieldName="password"
+                       handleChange={this.props.handleChange}/>
+          <SignInField fieldName="submit"
+                       handleSubmit={this.props.handleSubmit}/>
+        </div>
       </form>
     )
   }

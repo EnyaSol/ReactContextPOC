@@ -5,6 +5,7 @@
 import React  from "react";
 import Button from "./Button"
 import Table  from "./table/Table"
+import styles from "../css/styles.css"
 
 import {PropertyContext}  from "./provider/PropertyProvider"
 import {getPropertyFile, loginToGit, getFileFromGit} from './utils/APIUtil'
@@ -67,23 +68,37 @@ class App extends React.Component {
 
   render(){
     return(
-      <React.Fragment>
-      <PropertyContext.Provider value={this.state}>
-          <Table/>
-          <Button handleClick={this.handleClick.bind(this)}
-                  text="Homepage"/>
-      </PropertyContext.Provider>
+  <div className={"container " + styles.mainContainer}>
+      <div className={styles.docHeader}>
+        <h1 className={styles.docHeaderText}>React Context - Property POC</h1>
+      </div>
+      <div className={styles.outlineBlock + " row"} >
+        <h4 className={styles.exampleHeading}>Properties - with state feeding ReactContext</h4>
+        <PropertyContext.Provider value={this.state}>
+            <Table/>
+            <Button handleClick={this.handleClick.bind(this)}
+                    text="Homepage"/>
+        </PropertyContext.Provider>
+      </div>
 
-      <Table/>
-      <Button handleClick={this.handleClick.bind(this)}
-              text="Reader"/>
+      <div className={styles.outlineBlock + " row"} >
+        <h4 className={styles.exampleHeading}>Properties - without state feeding ReactContext</h4>
 
-      <SignInForm handleSubmit={this.handleSubmit.bind(this)}
-                  handleChange={this.handleChange.bind(this)}/>
+        <Table/>
+        </div>
 
-      <GitSelector handleChange={this.handleChange.bind(this)}
+      <div className={styles.outlineBlock + " row"} >
+        <h4 className={styles.exampleHeading}>Login to github to load repos via your user (future implementation)</h4>
+        <SignInForm handleSubmit={this.handleSubmit.bind(this)}
+                    handleChange={this.handleChange.bind(this)}/>
+      </div>
+
+     <div className={styles.outlineBlock + " row"} >
+       <h4 className={styles.exampleHeading}>Provide Git username, reponame, & filename you wish to load properties from</h4>
+       <GitSelector handleChange={this.handleChange.bind(this)}
                    handleSubmit={this.handleSubmit.bind(this)}/>
-      </React.Fragment>
+      </div>
+    </div>
     );
   }
 
