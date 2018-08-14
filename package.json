@@ -24,6 +24,7 @@
     "webpack-dev-server": "^3.1.5"
   },
   "dependencies": {
+    "github-api": "^3.0.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "superagent": "^3.8.3"
