@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "POC of loading properties from git lfs / s3 within react context",
   "main": "index.js",
+  "proxy": "http://developer.gartner.com:8081/property",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --mode development --open --hot",
@@ -27,6 +28,7 @@
     "github-api": "^3.0.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
+    "react-scripts": "^1.1.4",
     "superagent": "^3.8.3"
   }
 }

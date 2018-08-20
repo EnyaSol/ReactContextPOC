@@ -7,10 +7,12 @@ import React from 'react';
 
 const TableHeader = () => {
   return(
-    <tr>
-      <th>Header 1</th>
-      <th>Header 2</th>
-    </tr>
+    <thead>
+      <tr>
+        <th>Key</th>
+        <th>Value</th>
+      </tr>
+    </thead>
   );
 }
 

@@ -8,6 +8,20 @@ const GitHub = require('github-api')
 
 const gitUrl = '/git/url/here';
 const githubUrl = 'https://api.github.com';
+// const devServerUrl = "http://developer.gartner.com:8081/property/"
+
+export function getProperties (property){
+  request
+    .get(property)
+    .set("Accept", "application/json")
+      .then(
+      (res) => {
+        console.log(res);
+        return res.text;
+      },
+      (err) => console.log("Err", err)
+      )
+}
 
 export function getPropertyFile(propName) {
   mock.get('/git/url/here', function(req){

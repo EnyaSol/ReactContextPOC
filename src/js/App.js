@@ -8,7 +8,7 @@ import Table  from "./table/Table"
 import styles from "../css/styles.css"
 
 import {PropertyContext}  from "./provider/PropertyProvider"
-import {getPropertyFile, loginToGit, getFileFromGit} from './utils/APIUtil'
+import {getPropertyFile, loginToGit, getFileFromGit, getProperties} from './utils/APIUtil'
 
 import {SignInForm}      from './signIn/SignInForm'
 import {GitSelector}     from './repoSelector/GitSelector'
@@ -26,7 +26,8 @@ class App extends React.Component {
         {"Title 1" : "Aaron's test case 1"},
         {"Title 2" : "Aaron's test case 2"},
         {"Title 3" : "Aaron's test case 3"}
-      ]
+      ],
+      apiProperties: {}
     }
   }
 
@@ -65,6 +66,10 @@ class App extends React.Component {
     e.preventDefault();
   }
 
+  loadProperties(){
+    getProperties("homepage.properties")
+  }
+
 
   render(){
     return(
@@ -98,6 +103,12 @@ class App extends React.Component {
        <GitSelector handleChange={this.handleChange.bind(this)}
                    handleSubmit={this.handleSubmit.bind(this)}/>
       </div>
+
+
+    <div className={styles.outlineBlock + " row"} >
+      <h4 className={styles.exampleHeading}>Load properties from dev server</h4>
+      <Button handleClick={this.loadProperties.bind(this)}/>
+    </div>
     </div>
     );
   }

@@ -15,6 +15,7 @@ module.exports = {
     filename: '[name].js',
     path: __dirname + '/dist'
   },
+  
   // Setup modeles to use loaders on specific file types
   module: {
     rules: [
